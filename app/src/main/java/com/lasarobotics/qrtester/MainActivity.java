@@ -1,4 +1,4 @@
-package com.russellsayshi.qrtester;
+package com.lasarobotics.qrtester;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
