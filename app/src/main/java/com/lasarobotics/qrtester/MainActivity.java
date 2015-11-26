@@ -20,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void detect(View v) {
-
+        QRDetector qrd = new QRDetector();
     }
 }

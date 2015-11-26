@@ -1,4 +1,4 @@
-package org.lasarobotics.vision.test.detection;
+package com.lasarobotics.qrtester;
 
 import android.graphics.Bitmap;
 
