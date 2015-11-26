@@ -39,3 +39,4 @@ Thumbs.db
 # Android Studio #
 ##################
 .idea
+build
