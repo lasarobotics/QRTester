@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 Result r = qrd.detectFromBitmap(imageBitmap);
                 writeToTextField("Found!: " + r.getText());
+                qrd.reset();
             } catch(NotFoundException nfe) {
                 writeToTextField("Not found exception: " + nfe.getMessage());
             } catch(FormatException fe) {
