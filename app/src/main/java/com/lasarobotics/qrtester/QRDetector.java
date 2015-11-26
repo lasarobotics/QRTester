@@ -15,7 +15,7 @@ import com.google.zxing.datamatrix.DataMatrixReader;
 import com.google.zxing.qrcode.QRCodeReader;
 
 /**
- * Created by Russell on 11/26/2015.
+ * Uses Google's ZXing library to detect QR codes
  */
 public class QRDetector {
     QRCodeReader qrc;
