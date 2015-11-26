@@ -51,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ImageView iv = (ImageView) findViewById(R.id.imageView);
             iv.setImageBitmap(imageBitmap);
+            iv.setMinimumHeight(600);
             try {
                 Result r = qrd.detectFromBitmap(imageBitmap);
                 writeToTextField("Found!: " + r.getText());
                 writeToTextField2("Points: " + java.util.Arrays.toString(r.getResultPoints()) + "\n"
                         + "Timestamp: " + r.getTimestamp() + "\n"
                         + "Orientation: " + r.getResultMetadata().get(ResultMetadataType.ORIENTATION) + "\n"
-                        + "Error correction level: " + r.getResultMetadata().get(ResultMetadataType.ERROR_CORRECTION_LEVEL) + "\n"
-                        + "Suggested price: " + r.getResultMetadata().get(ResultMetadataType.SUGGESTED_PRICE));
+                        + "Error correction level: " + r.getResultMetadata().get(ResultMetadataType.ERROR_CORRECTION_LEVEL));
                 qrd.reset();
             } catch(NotFoundException nfe) {
                 writeToTextField("Not found exception: " + nfe.getMessage());
