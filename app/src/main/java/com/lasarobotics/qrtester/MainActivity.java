@@ -57,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 writeToTextField("Found!: " + r.getText());
                 writeToTextField2("Points: " + java.util.Arrays.toString(r.getResultPoints()) + "\n"
                         + "Timestamp: " + r.getTimestamp() + "\n"
-                        + "Orientation: " + r.getResultMetadata().get(ResultMetadataType.ORIENTATION) + "\n"
-                        + "Error correction level: " + r.getResultMetadata().get(ResultMetadataType.ERROR_CORRECTION_LEVEL));
+                        + "Orientation (Google): " + r.getResultMetadata().get(ResultMetadataType.ORIENTATION) + "\n"
+                        + "Error correction level: " + r.getResultMetadata().get(ResultMetadataType.ERROR_CORRECTION_LEVEL) + "\n"
+                        + "Orientation: " + qrd.getOrientationString());
                 qrd.reset();
             } catch(NotFoundException nfe) {
                 writeToTextField("Not found exception: " + nfe.getMessage());
