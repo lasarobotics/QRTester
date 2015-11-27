@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         + "Timestamp: " + r.getTimestamp() + "\n"
                         + "Orientation (Google): " + r.getResultMetadata().get(ResultMetadataType.ORIENTATION) + "\n"
                         + "Error correction level: " + r.getResultMetadata().get(ResultMetadataType.ERROR_CORRECTION_LEVEL) + "\n"
-                        + "Orientation: " + qrd.getOrientationString());
+                        + "Orientation: " + qrd.getOrientationFromResult(r));
                 qrd.reset();
             } catch(NotFoundException nfe) {
                 writeToTextField("Not found exception: " + nfe.getMessage());
