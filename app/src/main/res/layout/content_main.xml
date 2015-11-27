@@ -12,7 +12,8 @@
     <TextView
         android:id="@+id/textview"
         android:text="Results from QR testing will go here" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:freezesText="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +21,8 @@
         android:text="QR metadata will go here"
         android:id="@+id/textview2"
         android:layout_below="@+id/textview"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:freezesText="true" />
 
     <ImageView
         android:layout_width="match_parent"
