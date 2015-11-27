@@ -9,6 +9,7 @@ import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
+import com.google.zxing.ResultPoint;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
@@ -17,6 +18,13 @@ import com.google.zxing.qrcode.QRCodeReader;
  */
 public class QRDetector {
     QRCodeReader qrc;
+
+    private enum Orientation {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
+    }
 
     public QRDetector() {
         qrc = new QRCodeReader();
@@ -37,6 +45,21 @@ public class QRDetector {
     public Result detectFromBinaryBitmap(BinaryBitmap map) throws NotFoundException, ChecksumException, FormatException {
         //Read QR data from BinaryBitmap
         return qrc.decode(map);
+    }
+
+    /* Test data:
+     * Up:    (77.5, 98.0)  (77.5, 33.5)  (143.5, 34.5)
+     * Down:  (143.0, 32.0) (144.0, 94.0) (82.5, 94.5)
+     * Left:  (142.5, 99.0) (75.5, 98.5)  (76.5, 31.5)
+     * Right: (85.0, 32.0)  (148.0, 33.0) (146.5, 95.0)
+     */
+    public static Orientation getOrientation(ResultPoint[] points) {
+        if(points.length != 3) {
+            throw new RuntimeException("Wrong number of points");
+        }
+
+        //Determine which two points are closest
+        float xDifferences[] = new float[2];
     }
 
     public void reset() {
