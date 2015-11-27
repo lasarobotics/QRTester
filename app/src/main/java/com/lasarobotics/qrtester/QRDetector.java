@@ -19,7 +19,7 @@ import com.google.zxing.qrcode.QRCodeReader;
 public class QRDetector {
     QRCodeReader qrc;
 
-    private enum Orientation {
+    public enum Orientation {
         UP,
         DOWN,
         LEFT,
@@ -58,8 +58,24 @@ public class QRDetector {
             throw new RuntimeException("Wrong number of points");
         }
 
-        //Determine which two points are closest
-        float xDifferences[] = new float[2];
+        //Determine if first two X or second two X are closest
+        float xDiffOneTwo = Math.abs(points[0].getX() - points[1].getX());
+        float xDiffTwoThree = Math.abs(points[1].getX() - points[2].getX());
+        if(xDiffOneTwo < xDiffTwoThree) {
+            //Code is orientated up or down
+            if(points[0].getY() > points[1].getY()) {
+                return Orientation.UP;
+            } else {
+                return Orientation.DOWN;
+            }
+        } else {
+            //Code is orientated left or right
+            if(points[1].getY() > points[2].getY()) {
+                return Orientation.LEFT;
+            } else {
+                return Orientation.RIGHT;
+            }
+        }
     }
 
     public void reset() {
